@@ -10,4 +10,12 @@
 
 
     mysqli_select_db($db);
+
+    $sql = "create table demo (id int, name varchar(255))";
+
+    if (mysqli_query($conn, $sql)) {
+    echo "Database created successfully";
+    } else {
+    echo "Error creating database: " . mysqli_error($conn);
+}
 ?>
