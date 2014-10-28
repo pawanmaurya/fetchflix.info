@@ -6,7 +6,7 @@
     $password = $url["pass"];
     $db = substr($url["path"],1);
 
-    mysqli_connect($server, $username, $password);
+    $conn = new mysqli($servername, $username, $password);
 
 
     mysqli_select_db($db);
