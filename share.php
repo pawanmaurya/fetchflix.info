@@ -8,7 +8,7 @@ ini_set("display_errors", 1);
     $password = $url["pass"];
     $db = substr($url["path"],1);
 
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($server, $username, $password);
 
 
     mysqli_select_db($db);
