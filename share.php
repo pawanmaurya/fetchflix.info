@@ -8,10 +8,10 @@ ini_set("display_errors", 1);
     $password = $url["pass"];
     $db = substr($url["path"],1);
 
+    mysqli_select_db($db);
     $conn = new mysqli($server, $username, $password);
 
 
-    mysqli_select_db($db);
 
     $sql = "create table demo (id int, name varchar(255))";
 
