@@ -12,7 +12,8 @@ var imdb = {
         run: function (data) {
             temp = data['resource']['rating'];
             if (isNaN(temp)) temp = '-';
-            imdbRating = "<p class = 'text-center'><b>" + temp + "</b></p>";
+            //imdbRating = "<p class = 'text-center'><b>" + temp + "</b></p>";
+            imdbRating = temp ;
             temp = data['resource']['title'];
             if (isNaN(temp)) imdbMovieName = temp;
         }
@@ -22,11 +23,13 @@ var imdb = {
 //some global variables ... they can be avoided, but I am lazy
 var imdbRating = 0;
 var imdbMovieName;
+var youtubeId = null;
 var clickCounter = 0;
 var index_counter = 0;
 var moviesFoundCounter = 0; //counter for how many movies info have we got
 var tableObj = 0;
 var stopSearching = 0;
+var finalResult = {};
 
 function hash(s) {
     return s.split("").reduce(function (a, b) {
@@ -284,7 +287,10 @@ $(document).ready(function () {
                     var items = json.data.items;
                     console.log(items);
                     if (items[0]) 
-                        ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a>';
+		    {
+		    	ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a>';
+			youtubeId = items[0].id;
+		    }
                 }
                 pushObj(movieStr, genres, imdbId, index, ret);
             },
@@ -312,6 +318,8 @@ $(document).ready(function () {
         $("#numFound").html("<b> " + moviesFoundCounter + " </b>");
         $("#numFoundText").show();
 
+	finalResult[imdbMovieName] = [imdbId, imdbRating, youtubeId, genres];
+
         getMovieInfoRecursive(); //got all info for one movie , move on to next video file
     }
 
@@ -322,11 +330,12 @@ $(document).ready(function () {
             console.log("All videos are processed !!!");
             console.log(notFoundArr); //lesser element here means better
             stopLoadingGif();
-            swal({   
+            /*swal({   
                 title: "Sweet!",
                 text:  " Info found for "+moviesFoundCounter+" movies",
                 type: "success"
-            });
+            });*/
+	    console.log(finalResult);
             return;
         }
         getMovieInfo(videoFiles[index_counter].name, videoFiles[index_counter].index);
