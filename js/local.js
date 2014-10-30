@@ -40,7 +40,6 @@ function hash(s) {
 
 $(document).ready(function () {
 
-         //swal({     title: "Error!",     text: "Here's my error message!",     type: "error",     confirmButtonText: "Cool"   });
     var api_key = "c340d5ff1e32511e4584f70860ab018c";
     var fileNames = []; //used for saving original filenames
     var videoFiles = []; //used for saving videoFiles (again... it could have been in filename itself)
@@ -53,7 +52,10 @@ $(document).ready(function () {
         var is_chrome = !!window.chrome;
         if(!is_chrome)
         {
-            sweetAlert("Oops...", "Only Google chrome is supported", "error");
+	    BootstrapDialog.alert({
+		title: 'Oops! Only Google Chrome is supported',
+            	message: 'Only chrome provides webkitdirectory to select whole folders'
+	    });	    
             return;
         }
         e.preventDefault();
@@ -335,10 +337,52 @@ $(document).ready(function () {
                 text:  " Info found for "+moviesFoundCounter+" movies",
                 type: "success"
             });*/
+	    if(moviesFoundCounter)
+	    	askForSharing();
 	    console.log(finalResult);
             return;
         }
         getMovieInfo(videoFiles[index_counter].name, videoFiles[index_counter].index);
+    }
+
+    function askForSharing()
+    {
+        BootstrapDialog.show({
+	    title: 'Sweet',
+            message: 'I send ajax request!',
+            buttons: [{
+                icon: 'glyphicon glyphicon-share-alt',
+                label: 'Get url for sharing movie list',
+                cssClass: 'btn-primary',
+                autospin: true,
+                action: function(dialogRef){
+                    dialogRef.enableButtons(false);
+                    dialogRef.setClosable(false);
+                    dialogRef.getModalBody().html('Wait! generating unique link');
+                    /*setTimeout(function(){
+                        dialogRef.close();
+                    }, 5000);*/
+		    $.ajax({
+        	    type: "GET",
+	            url: "getUniqueUrl.php",
+	            success: function (dataCheck) {
+		        dialogRef.getModalBody().html('Your unique url is generated, share this<br>'+dataCheck);
+			dialogRef.setClosable(true);
+	            },
+	            error: function () {
+		        dialogRef.getModalBody().html('Sorry, something went wrong');
+			dialogRef.setClosable(true);
+	            }
+	            });
+                }
+            }, {
+                label: 'Close',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+        });
+
     }
 
     function populateDataTable() {
