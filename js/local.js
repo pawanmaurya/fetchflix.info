@@ -364,7 +364,7 @@ $(document).ready(function () {
                     /*setTimeout(function(){
                         dialogRef.close();
                     }, 5000);*/
-	            var $footerButton = dialog.getButton('btn-1');	    
+	            var $footerButton = dialogRef.getButton('btn-1');	    
 		    $.ajax({
         	    type: "GET",
 	            url: "getUniqueUrl.php",
