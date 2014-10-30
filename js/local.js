@@ -352,7 +352,7 @@ $(document).ready(function () {
             message: 'I send ajax request!',
 	    closable: false,
             buttons: [{
-		id: 'btn-1'
+		id: 'btn-1',
                 icon: 'glyphicon glyphicon-send',
                 label: 'Get url for sharing movie list',
                 cssClass: 'btn-primary',
