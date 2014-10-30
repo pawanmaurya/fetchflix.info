@@ -364,19 +364,16 @@ $(document).ready(function () {
                     /*setTimeout(function(){
                         dialogRef.close();
                     }, 5000);*/
-	            var $footerButton = dialogRef.getButton('btn-1');	    
 		    $.ajax({
         	    type: "GET",
 	            url: "getUniqueUrl.php",
 	            success: function (dataCheck) {
 		        dialogRef.getModalBody().html('Your unique url is generated, share this<br>'+dataCheck);
-			dialogRef.setClosable(true);
-			$footerButton.hide();
+			askForSharing_aux(dialogRef);
 	            },
 	            error: function () {
 		        dialogRef.getModalBody().html('Sorry, something went wrong');
-			dialogRef.setClosable(true);
-			$footerButton.hide();
+			askForSharing_aux(dialogRef);
 	            }
 	            });
                 }
@@ -388,6 +385,13 @@ $(document).ready(function () {
             }]
         });
 
+    }
+
+    function askForSharing_aux(dialogRef)
+    {
+	dialogRef.setClosable(true);
+	dialogRef.getButton('btn-1') .hide();
+	dialogRef.enableButtons(false);
     }
 
     function populateDataTable() {
