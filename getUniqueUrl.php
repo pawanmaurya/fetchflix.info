@@ -1,4 +1,4 @@
 <?
-echo $_SERVER["HTTP_REFERER"];
-echo $_SERVER["PHP_SELF"];
+echo parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
+
 ?>
