@@ -59,7 +59,7 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>Fetch Flix Info</h1>
-            <h3>Instant IMDB info for your movies collection</h3>
+            <h3>Instant info for your movies collection : <span class="rotate">Youtube&nbsp;trailer, Imdb&nbsp;rating, movie&nbsp;genres, Imdb&nbsp;link</span></h3>
             <h3>Share your movies list</h3>
             <br>
                 <div class="col-lg-8 col-lg-offset-2 ">
@@ -197,11 +197,18 @@
     <link rel="stylesheet" href = "http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css">
     <link rel="stylesheet" href = "css/bootstrap-dialog.min.css">
     <script src="js/bootstrap-dialog.min.js"></script> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/simple-text-rotator/1.0.0/jquery.simple-text-rotator.min.js"></script> 
+    
 
     <script src="js/local.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>
+$(".rotate").textrotator({
+        animation: "flipUp",
+        separator: ",",
+    speed: 2000
+    });
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
         e.preventDefault();
