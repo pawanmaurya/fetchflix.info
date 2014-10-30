@@ -365,7 +365,8 @@ $(document).ready(function () {
                         dialogRef.close();
                     }, 5000);*/
 		    $.ajax({
-        	    type: "GET",
+        	    type: "POST",
+		    data: {movieData: finalResult},
 	            url: "getUniqueUrl.php",
 	            success: function (dataCheck) {
 		        dialogRef.getModalBody().html('Your unique url is generated, share this<br>'+dataCheck);
