@@ -350,8 +350,10 @@ $(document).ready(function () {
         BootstrapDialog.show({
 	    title: 'Sweet',
             message: 'I send ajax request!',
+	    closable: false,
             buttons: [{
-                icon: 'glyphicon glyphicon-share-alt',
+		id: 'btn-1'
+                icon: 'glyphicon glyphicon-send',
                 label: 'Get url for sharing movie list',
                 cssClass: 'btn-primary',
                 autospin: true,
@@ -362,16 +364,19 @@ $(document).ready(function () {
                     /*setTimeout(function(){
                         dialogRef.close();
                     }, 5000);*/
+	            var $footerButton = dialog.getButton('btn-1');	    
 		    $.ajax({
         	    type: "GET",
 	            url: "getUniqueUrl.php",
 	            success: function (dataCheck) {
 		        dialogRef.getModalBody().html('Your unique url is generated, share this<br>'+dataCheck);
 			dialogRef.setClosable(true);
+			$footerButton.hide();
 	            },
 	            error: function () {
 		        dialogRef.getModalBody().html('Sorry, something went wrong');
 			dialogRef.setClosable(true);
+			$footerButton.hide();
 	            }
 	            });
                 }
