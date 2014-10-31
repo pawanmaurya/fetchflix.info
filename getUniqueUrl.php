@@ -5,11 +5,19 @@ ini_set("display_errors", 1);
 
 include_once("db.php");
 
+createTable();
+/*
 $movieData = $_POST['movieData'];
-echo "movieData ".serialize($movieData);
+$movieData = serialize($movieData);
 
-/*$pg_conn = getDbConn();
+$uniqueUrlId = insertData($movieData);
 
+if($uniqueUrlId)
+	echo "$uniqueUrlId";
+else
+	return NULL;
+
+/*
 $uniqueId = uniqid();
 $result = pg_query($pg_conn, "select * from unique_id_to_movies");
 print "<pre>\n";
