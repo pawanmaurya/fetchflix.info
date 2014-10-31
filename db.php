@@ -12,7 +12,7 @@ function getDbConn()
 	return $pg_conn;
 }
 
-$TABLE = 'unique_id_to_movies';
+static $TABLE = 'unique_id_to_movies';
 $MOVIESDATA = 2;
 
 function insertData($movieData)
