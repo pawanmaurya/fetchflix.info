@@ -23,9 +23,10 @@ public function insertData($movieData)
 	if(self::selectData($uniqueId))
 		return insertData($movieData);
 
-	$movieData = mysql_real_escape_string($movieData);		
+	$movieData = pg_escape_string($movieData);		
 	$query = "insert into ".self::$TABLE." (unique_id, movies_data) 
 				values( '$uniqueId', '$movieData')";	
+	
 	$result = pg_query(self::getDbConn(),$query);
 	
 	if (pg_affected_rows($result))
