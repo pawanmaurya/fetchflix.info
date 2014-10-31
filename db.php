@@ -10,7 +10,7 @@ public function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 public function getDbConn()
 {
-	$pg_conn = pg_connect(pg_connection_string_from_database_url());
+	$pg_conn = pg_connect(self::pg_connection_string_from_database_url());
 	return $pg_conn;
 }
 
