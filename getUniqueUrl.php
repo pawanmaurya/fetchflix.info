@@ -15,7 +15,8 @@ $uniqueUrlId = $db->insertData($movieData);
 if($uniqueUrlId)
 	echo "$uniqueUrlId";
 else
-	return NULL;
+	echo "blah";
+	//echo "";
 
 /*
 $uniqueId = uniqid();
