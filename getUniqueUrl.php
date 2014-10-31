@@ -7,7 +7,7 @@ include_once("db.php");
 
 $db = new DB();
 //$movieData = $_POST['movieData'];
-$movieData = array("batman":array('asa',2,'ass'));
+$movieData = array("batman"=>array('asa',2,'ass'));
 $movieData = serialize($movieData);
 
 $uniqueUrlId = $db->insertData($movieData);
