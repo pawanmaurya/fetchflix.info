@@ -12,8 +12,8 @@ function getDbConn()
 	return $pg_conn;
 }
 
-const TABLE = 'unique_id_to_movies';
-const MOVIESDATA = 2;
+$TABLE = 'unique_id_to_movies';
+$MOVIESDATA = 2;
 
 function insertData($movieData)
 {
@@ -22,7 +22,7 @@ function insertData($movieData)
 		return insertData($movieData);
 
 	$movieData = mysql_real_escape_string($movieData);		
-	$query = "insert into TABLE (`unique_id`, `movies_data`) 
+	$query = "insert into $TABLE (`unique_id`, `movies_data`) 
 				values( $uniqueId, $movieData)";	
 	$result = pg_query(getDbConn(),$query);
 	
@@ -32,18 +32,18 @@ function insertData($movieData)
 
 function selectData($uniqueId)
 {
-	$query = "select * from TABLE where `unique_id` = $uniqueId";
+	$query = "select * from $TABLE where `unique_id` = $uniqueId";
 	$result = pg_query(getDbConn(),$query);
 	if (!pg_num_rows($result))
 		return NULL;
 	$row = pg_fetch_row($result);
-	return $row[MOVIESDATA]	;
+	return $row[$MOVIESDATA];
 	
 }
 
 function createTable()
 {
-	$query = "create table TABLE(
+	$query = "create table $TABLE(
 		s_no int NOT NULL,
 		unique_id varchar(255) primary key NOT NULL,
 		movies_data text NOT NULL
