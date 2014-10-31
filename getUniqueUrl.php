@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 include_once("db.php");
 
 $movieData = $_POST['movieData'];
-echo "movieData ".print_r($movieData);
+echo "movieData ".serialize($movieData);
 
 /*$pg_conn = getDbConn();
 
