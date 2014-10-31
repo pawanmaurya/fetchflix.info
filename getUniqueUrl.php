@@ -6,12 +6,10 @@ ini_set("display_errors", 1);
 include_once("db.php");
 
 $db = new DB();
-$db->createTable();
-/*
 $movieData = $_POST['movieData'];
 $movieData = serialize($movieData);
 
-$uniqueUrlId = insertData($movieData);
+$uniqueUrlId = $db->insertData($movieData);
 
 if($uniqueUrlId)
 	echo "$uniqueUrlId";
