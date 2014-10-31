@@ -47,7 +47,7 @@ function createTable()
 		s_no int NOT NULL,
 		unique_id varchar(255) primary key NOT NULL,
 		movies_data text NOT NULL
-		");
+		)";
 
 	$result = pg_query(getDbConn(),$query);
 	print_r($result);
