@@ -5,7 +5,8 @@ ini_set("display_errors", 1);
 
 include_once("db.php");
 
-DB::createTable();
+$db = new DB();
+$db->createTable();
 /*
 $movieData = $_POST['movieData'];
 $movieData = serialize($movieData);
