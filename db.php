@@ -20,13 +20,13 @@ public static $MOVIESDATA = 2;
 public function insertData($movieData)
 {
 	$uniqueId = uniqid();
-	if(selectData($uniqid))
+	if(self::selectData($uniqid))
 		return insertData($movieData);
 
 	$movieData = mysql_real_escape_string($movieData);		
-	$query = "insert into $TABLE (`unique_id`, `movies_data`) 
+	$query = "insert into self::$TABLE (`unique_id`, `movies_data`) 
 				values( $uniqueId, $movieData)";	
-	$result = pg_query(getDbConn(),$query);
+	$result = pg_query(self::getDbConn(),$query);
 	
 	if (pg_affected_rows($result))
 		return $uniqueId;
@@ -35,7 +35,7 @@ public function insertData($movieData)
 public function selectData($uniqueId)
 {
 	$query = "select * from $TABLE where `unique_id` = $uniqueId";
-	$result = pg_query(getDbConn(),$query);
+	$result = pg_query(self::getDbConn(),$query);
 	if (!pg_num_rows($result))
 		return NULL;
 	$row = pg_fetch_row($result);
@@ -45,13 +45,13 @@ public function selectData($uniqueId)
 
 public function createTable()
 {
-	$query = "create table $TABLE(
+	$query = "create table self::$TABLE(
 		s_no int NOT NULL auto_increment,
 		unique_id varchar(255) primary key NOT NULL,
 		movies_data text NOT NULL
 		)";
 
-	$result = pg_query(getDbConn(),$query);
+	$result = pg_query(self::getDbConn(),$query);
 	print_r($result);
 }
 }
