@@ -369,7 +369,8 @@ $(document).ready(function () {
 		    data: {movieData: finalResult},
 	            url: "getUniqueUrl.php",
 	            success: function (dataCheck) {
-		        dialogRef.getModalBody().html('Your unique url is generated, share this<br>'+dataCheck);
+			shareUrl = window.location.hostname+"/share.php?id="+dataCheck;
+		        dialogRef.getModalBody().html('Your unique url is generated, share this<br><pre><a href ="'+shareUrl+'"  target = "_blank">'+shareUrl+'</a></pre>');
 			askForSharing_aux(dialogRef);
 	            },
 	            error: function () {
