@@ -10,7 +10,7 @@ echo "movieData ".$movieData;
 
 $pg_conn = getDbConn();
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "insert into unique_id_to_movies values('sds','sdsdds')");
+$result = pg_query($pg_conn, "select * from unique_id_to_movies");
 print "<pre>\n";
 if (!pg_num_rows($result)) {
   print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
