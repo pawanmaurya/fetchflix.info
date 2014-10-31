@@ -6,10 +6,11 @@ ini_set("display_errors", 1);
 include_once("db.php");
 
 $movieData = $_POST['movieData'];
-echo "movieData ".$movieData;
+echo "movieData ".print_r($movieData);
 
-$pg_conn = getDbConn();
-# Now let's use the connection for something silly just to prove it works:
+/*$pg_conn = getDbConn();
+
+$uniqueId = uniqid();
 $result = pg_query($pg_conn, "select * from unique_id_to_movies");
 print "<pre>\n";
 if (!pg_num_rows($result)) {
@@ -19,5 +20,6 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
+ */
 ?>
 
