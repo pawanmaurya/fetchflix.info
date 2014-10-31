@@ -11,12 +11,10 @@ $movieData = array("batman"=>array('asa',2,'ass'));
 $movieData = serialize($movieData);
 
 $uniqueUrlId = $db->insertData($movieData);
-echo "sdsdsdsdsdsds";
 if($uniqueUrlId)
-	echo "uniqueUrlId "."$uniqueUrlId";
+	echo $uniqueUrlId;
 else
-	echo "blah";
-	//echo "";
+	echo "";
 
 /*
 $uniqueId = uniqid();
