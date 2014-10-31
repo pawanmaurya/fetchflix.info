@@ -392,7 +392,7 @@ $(document).ready(function () {
     {
 	dialogRef.setClosable(true);
 	dialogRef.getButton('btn-1') .hide();
-	dialogRef.enableButtons(false);
+	dialogRef.enableButtons(true);
     }
 
     function populateDataTable() {
