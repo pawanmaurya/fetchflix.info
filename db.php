@@ -46,7 +46,7 @@ public function selectData($uniqueId)
 public function createTable()
 {
 	$query = "create table ".self::$TABLE."(
-		s_no int NOT NULL auto_increment,
+		s_no int NOT NULL serial,
 		unique_id varchar(255) primary key NOT NULL,
 		movies_data text NOT NULL
 		)";
