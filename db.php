@@ -24,7 +24,7 @@ public function insertData($movieData)
 		return insertData($movieData);
 
 	$movieData = mysql_real_escape_string($movieData);		
-	$query = "insert into ".self::$TABLE." (`unique_id`, `movies_data`) 
+	$query = "insert into ".self::$TABLE." (unique_id, movies_data) 
 				values( '$uniqueId', '$movieData')";	
 	$result = pg_query(self::getDbConn(),$query);
 	
@@ -34,7 +34,7 @@ public function insertData($movieData)
 
 public function selectData($uniqueId)
 {
-	$query = "select * from ".self::$TABLE." where `unique_id` = '$uniqueId'";
+	$query = "select * from ".self::$TABLE." where unique_id = '$uniqueId'";
 	$result = pg_query(self::getDbConn(),$query);
 	if (!pg_num_rows($result))
 		return NULL;
