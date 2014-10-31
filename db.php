@@ -20,7 +20,7 @@ public static $MOVIESDATA = 2;
 public function insertData($movieData)
 {
 	$uniqueId = uniqid();
-	if(self::selectData($uniqid))
+	if(self::selectData($uniqueId))
 		return insertData($movieData);
 
 	$movieData = mysql_real_escape_string($movieData);		
