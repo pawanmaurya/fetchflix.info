@@ -40,7 +40,6 @@ include_once("db.php");
 $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
-print_r($data);
 foreach ($data as $movie=>$movieData)
 {
 echo "<tr>";
@@ -60,10 +59,16 @@ echo "</tr>";
     <script  type="text/javascript" language="javascript"  src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script  type="text/javascript" language="javascript"  src='//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.1/js/jquery.dataTables.min.js'></script>
-    <script  type="text/javascript" language="javascript"  src='//cdn.datatables.net/plug-ins/725b2a2115b/api/fnStandingRedraw.js'></script>
     <script  type="text/javascript" language="javascript"  src='https://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js'></script>
 
     <link rel="stylesheet" href = "http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css">
+
+<script type= "text/javascript">
+$(document).ready(function () {
+    $('#movieInfo').DataTable();
+	
+});
+</script>
 </html>
 
 
