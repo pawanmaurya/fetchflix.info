@@ -37,7 +37,7 @@ $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
 ?>
 <div class = "row">
-	<div class = "alert alert-info offset2 span4"> <? echo count($data);?> movies are this list</div>
+<hr/>
 </div>
         </div> 
         </div>
