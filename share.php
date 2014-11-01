@@ -25,7 +25,7 @@
         <!-- Portfolio -->
         <div class = "container">
 	<div class="header">
-        <h3 class="text-muted">Project name</h3>
+	<h2 class="text-muted"><a href="<?echo parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);?>">Fetch Flix Info</a></h2>
 	</div>
 	<div class="col-lg-12 ">
        <div  id = "message">
