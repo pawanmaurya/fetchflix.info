@@ -66,7 +66,7 @@ echo "</tr>";
 <script type= "text/javascript">
 $(document).ready(function () {
 	$('#movieInfo').DataTable({
-		//"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 	        "bAutoWidth": false,
                 "bProcessing": true,
                 "oLanguage": {
