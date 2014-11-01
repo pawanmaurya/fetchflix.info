@@ -53,8 +53,8 @@ if(!count($data))
         <table id="movieInfo" class="table table-striped table-bordered">
 	<thead>
 	<td>Movie</td>
-	<td>Imdb Rating</td>
-	<td>Trailer</td>
+	<td class = "text-center">Imdb Rating</td>
+	<td class = "text-center">Trailer</td>
 	<td>Genres</td>
         </thead>
 <?
