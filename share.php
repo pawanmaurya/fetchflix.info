@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Fetch Flix Info - Analyze movie collection</title>
 
     <!-- Bootstrap Core CSS -->
 
