@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function showShareBtn()
     {
-        $("#shareSpan").html('<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>');
+        $("#shareSpan").html('<button class="btn btn-success btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span> Share movie list</button>');
         $("#shareBtn").click(function () {
 		if(shareUrl)
 			displaySharing();
