@@ -70,13 +70,15 @@ $(document).ready(function () {
 	        "bAutoWidth": false,
                 "bProcessing": true,
                 "oLanguage": {
-                "sEmptyTable": "Searching for movie data ..."
+                "sEmptyTable": "Wait! list movies ..."
             },
                 "order": [   
                 [1, "desc"]  //short by imdb rating
             ],	
 });
 	
+        $('input[type=search]').css('width', '200');
+        $('.dataTables_filter input').attr("placeholder", "Filter by ratings, genres, names");
 });
 </script>
 </html>
