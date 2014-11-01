@@ -65,7 +65,7 @@ foreach ($data as $movie=>$movieData)
 echo "<tr>";
 	echo '<td><a target="_blank" href = "http://www.imdb.com/title/' . $movieData[0] . '">' . $movie . '</a></td>';
 	echo "<td><span class = 'text-center'>$movieData[1]</span></td>";
-	echo '<td><a target="_blank" href="http://youtu.be/'  . $movieData[2]. '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a></td>';
+	echo '<td><a target="_blank" href="http://youtu.be/'  . $movieData[2]. '"><img src = "img/youtube.png" alt = "youtube link" title = "Trailer"/></a></td>';
 	echo "<td>$movieData[3]</td>";
 echo "</tr>";
 }
