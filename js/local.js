@@ -84,6 +84,8 @@ $(document).ready(function () {
 
         $("#stop-search").click(function () {
             $("#stop-search").hide();
+	    if(moviesFoundCounter)
+	    	    $("#shareSpan").html('<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>');
             stopLoadingGif();
             stopSearching = 1;
         });
@@ -349,7 +351,9 @@ $(document).ready(function () {
             console.log(notFoundArr); //lesser element here means better
             stopLoadingGif();
             $("#stop-search").hide();
-	    
+	    $("#shareSpan").html( 
+		    '<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>'
+); 	    
 	    if(moviesFoundCounter)
 	    	askForSharing();
 	    console.log(finalResult);
