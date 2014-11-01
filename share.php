@@ -20,6 +20,14 @@
     <section id="result" class="portfolio" style = "visibility:none">
         
         <div class = "container">
+<div class="header">
+        <ul class="nav nav-pills pull-right" role="tablist">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="#">About</a></li>
+          <li role="presentation"><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">Project name</h3>
+      </div>
                 <div class="col-lg-12 ">
        <div  id = "message">
 <?
@@ -30,7 +38,7 @@ $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
 ?>
-	<div class = "alert alert-info offset2 span4"> <? echo count($data);?> movies are this list</div>
+	<span class = "alert alert-info offset2 span4"> <? echo count($data);?> movies are this list</span>
         </div> 
         </div>
         <div id="example_wrapper" class="dataTables_wrapper span8 offset2">
