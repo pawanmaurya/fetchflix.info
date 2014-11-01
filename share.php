@@ -22,6 +22,15 @@
         <div class = "container">
                 <div class="col-lg-12 ">
        <div  id = "message">
+<?
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+include_once("db.php");
+$db = new DB();
+$data = $db->selectData("5453c7232634f");
+$data = unserialize($data);
+?>
+	<div class = "alert alert-info "> <? echo count($data);?> video files are found in your directory</div>
         </div> 
         </div>
         <div id="example_wrapper" class="dataTables_wrapper span8 offset2">
@@ -34,12 +43,7 @@
         </thead>
 <?
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-include_once("db.php");
-$db = new DB();
-$data = $db->selectData("5453c7232634f");
-$data = unserialize($data);
+
 foreach ($data as $movie=>$movieData)
 {
 echo "<tr>";
