@@ -66,14 +66,14 @@ echo "</tr>";
 <script type= "text/javascript">
 $(document).ready(function () {
 	$('#movieInfo').DataTable({
-		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		//"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
 	        "bAutoWidth": false,
                 "bProcessing": true,
                 "oLanguage": {
                 "sEmptyTable": "Searching for movie data ..."
             },
                 "order": [   
-                [2, "desc"]  //short by imdb rating
+                [1, "desc"]  //short by imdb rating
             ],	
 });
 	
