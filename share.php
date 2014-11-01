@@ -33,6 +33,9 @@
 	<td>Genres</td>
         </thead>
 <?
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 include_once("db.php");
 $db = new DB();
 $data = $db->selectData("5453c7232634f");
