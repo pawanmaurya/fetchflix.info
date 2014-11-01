@@ -8,6 +8,8 @@ if (parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['SERVER_NAME']
 include_once("db.php");
 
 $db = new DB();
+if(!isset($_POST['movieData']))
+	exit();
 $movieData = $_POST['movieData'];
 $movieData = serialize($movieData);
 
