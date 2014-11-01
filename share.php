@@ -39,7 +39,7 @@ if(!isset($_GET['id']))
 $uniqueId = $_GET['id'];
 include_once("db.php");
 $db = new DB();
-$data = $db->selectData("5453c7232634f");
+$data = $db->selectData($uniqueId);
 $data = unserialize($data);
 if(!count($data))
 {

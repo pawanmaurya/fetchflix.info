@@ -13,7 +13,7 @@ var imdb = {
             temp = data['resource']['rating'];
             if (isNaN(temp)) temp = '-';
             //imdbRating = "<p class = 'text-center'><b>" + temp + "</b></p>";
-            imdbRating = temp ;
+            imdbRating = temp;
             temp = data['resource']['title'];
             if (isNaN(temp)) imdbMovieName = temp;
         }
@@ -44,29 +44,28 @@ $(document).ready(function () {
     var api_key = "c340d5ff1e32511e4584f70860ab018c";
     var fileNames = []; //used for saving original filenames
     var videoFiles = []; //used for saving videoFiles (again... it could have been in filename itself)
-                         // videoFiles = [{index : <index of fileNames>, name : <video name>}]
+    // videoFiles = [{index : <index of fileNames>, name : <video name>}]
     var notFoundArr = []; //for debugging
 
-        $("#whyGoogle").click(function (e) {
-	    BootstrapDialog.alert({
-		title: 'Oops! Only Google Chrome is supported',
-            	message: 'Only chrome provides webkitdirectory to select whole folders',
-	        type: BootstrapDialog.TYPE_DEFAULT,
-	    }); 
-	    e.preventDefault();
+    $("#whyGoogle").click(function (e) {
+        BootstrapDialog.alert({
+            title: 'Oops! Only Google Chrome is supported',
+            message: 'Only chrome provides webkitdirectory to select whole folders',
+            type: BootstrapDialog.TYPE_DEFAULT,
         });
+        e.preventDefault();
+    });
 
     //proxyBtn is used to override default chrome btn
     $("#proxyBtn").click(function (e) {
-        
-        var is_chrome = !!window.chrome;
-        if(!is_chrome)
-        {
-	    BootstrapDialog.alert({
-		title: 'Oops! Only Google Chrome is supported',
-            	message: 'Only chrome provides webkitdirectory to select whole folders',
-	        type: BootstrapDialog.TYPE_WARNING,
-	    });	    
+
+        var is_chrome = !! window.chrome;
+        if (!is_chrome) {
+            BootstrapDialog.alert({
+                title: 'Oops! Only Google Chrome is supported',
+                message: 'Only chrome provides webkitdirectory to select whole folders',
+                type: BootstrapDialog.TYPE_WARNING,
+            });
             return;
         }
         e.preventDefault();
@@ -94,44 +93,40 @@ $(document).ready(function () {
 
         $("#stop-search").click(function () {
             $("#stop-search").hide();
-	    if(moviesFoundCounter)
-		showShareBtn();
+            if (moviesFoundCounter) showShareBtn();
             stopLoadingGif();
             stopSearching = 1;
         });
 
         $("#numFoundText").hide();
 
-        if (!clickCounter++)      //only first time initialize table after then , clear and redraw
-            initializeDataTable();
-        else
-        {
+        if (!clickCounter++) //only first time initialize table after then , clear and redraw
+        initializeDataTable();
+        else {
             tableObj.fnClearTable();
-	    cleanGlobalVars();
+            cleanGlobalVars();
             initializeDataTable();
         }
         startProcessingMovieNames();
     }, false);
 
 
-    function showShareBtn()
-    {
+    function showShareBtn() {
         $("#shareSpan").html('<button class="btn btn-success btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span> Share movie list</button>');
         $("#shareBtn").click(function () {
-		if(shareUrl)
-			displaySharing();
-		else
-			askForSharing();
+            if (shareUrl) displaySharing();
+            else askForSharing();
         });
     }
-    function cleanGlobalVars()
-    {
-	moviesFoundCounter = 0;
-	stopSearching = 0;
-	finalResult = {};
-	shareUrl = null;
-    	index_counter = 0;
+
+    function cleanGlobalVars() {
+        moviesFoundCounter = 0;
+        stopSearching = 0;
+        finalResult = {};
+        shareUrl = null;
+        index_counter = 0;
     }
+
     function startLoadingGif() {
         $("#loading").html("<img src='img/load.gif' alt='loading...' />");
 
@@ -165,7 +160,7 @@ $(document).ready(function () {
     }
 
     function getVideoFileNames(files) {
-        var videoExts = ["avi", "mp4", "flv", "divx", "mov", "mkv", "webm","m4v","wmv"]; 
+        var videoExts = ["avi", "mp4", "flv", "divx", "mov", "mkv", "webm", "m4v", "wmv"];
 
         var file, tempFiles = [];
         for (var i = 0, len = files.length; i < len; i++) {
@@ -236,8 +231,7 @@ $(document).ready(function () {
         moviesFoundCounter = 0;
         startLoadingGif();
         console.log(videoFiles);
-        if (!index_counter) 
-            getMovieInfo(videoFiles[index_counter].name, videoFiles[index_counter].index);
+        if (!index_counter) getMovieInfo(videoFiles[index_counter].name, videoFiles[index_counter].index);
     }
 
     function getMoreMovieInfo(obj, index, keyword) {
@@ -245,7 +239,7 @@ $(document).ready(function () {
         if ((obj['total_pages'] == 0) || (!obj['results'])) {
             notFoundArr.push(keyword);
             console.log("======= no result");
-            getMovieInfoRecursive();  //result not found for this movie , start with next video file name
+            getMovieInfoRecursive(); //result not found for this movie , start with next video file name
             return;
         }
 
@@ -264,11 +258,10 @@ $(document).ready(function () {
                 console.log("getMoreMovieInfo");
                 imdbId = dataCheck['imdb_id'];
 
-                if (!imdbId) 
-                {
+                if (!imdbId) {
                     console.log("imdbId not fond");
                     notFoundArr.push(keyword);
-                    getMovieInfoRecursive();  //result not found for this movie , start with next video file name
+                    getMovieInfoRecursive(); //result not found for this movie , start with next video file name
                     return;
                 }
                 var movieStr = '<a target="_blank" href = "http://www.imdb.com/title/' + imdbId + '">' + title + '</a>';
@@ -303,7 +296,7 @@ $(document).ready(function () {
         //url for getting movie trailer from youtube api.
         var url = "http://gdata.youtube.com/feeds/api/videos/?v=2&alt=jsonc";
         url = url + '&paid-content=false';
-        url = url + '&duration=short';  //trailers are usually short
+        url = url + '&duration=short'; //trailers are usually short
         url = url + '&orderby=relevance&time=all_time';
         url = url + '&max-results=1'; //we want only one trailer
 
@@ -320,11 +313,10 @@ $(document).ready(function () {
                 if (json.data.items) {
                     var items = json.data.items;
                     console.log(items);
-                    if (items[0]) 
-		    {
-		    	ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "img/youtube.png" alt = "youtube link" title = "Trailer"/></a>';
-			youtubeId = items[0].id;
-		    }
+                    if (items[0]) {
+                        ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "img/youtube.png" alt = "youtube link" title = "Trailer"/></a>';
+                        youtubeId = items[0].id;
+                    }
                 }
                 pushObj(movieStr, genres, imdbId, index, ret);
             },
@@ -342,17 +334,17 @@ $(document).ready(function () {
         fileName = fileNames[index]; //get original file name
         tableObj.fnAddData([fileName, movieStr, trailer, imdbRating, genres], false);
         tableObj.fnStandingRedraw(); //this is datatable plugin call to redraw,
-                                     //so we table is not returned to page 1, after every row addition
-                                     
+        //so we table is not returned to page 1, after every row addition
+
         $('input[type=search]').css('width', '200');
         $('.dataTables_filter input').attr("placeholder", "Filter by ratings, genres, names");
 
         moviesFoundCounter++;
-        document.title = "("+moviesFoundCounter+") "+"Movies Collection Info";
+        document.title = "(" + moviesFoundCounter + ") " + "Movies Collection Info";
         $("#numFound").html("<b> " + moviesFoundCounter + " </b>");
         $("#numFoundText").show();
 
-	finalResult[imdbMovieName] = [imdbId, imdbRating, youtubeId, genres];
+        finalResult[imdbMovieName] = [imdbId, imdbRating, youtubeId, genres];
 
         getMovieInfoRecursive(); //got all info for one movie , move on to next video file
     }
@@ -365,24 +357,23 @@ $(document).ready(function () {
             console.log(notFoundArr); //lesser element here means better
             stopLoadingGif();
             $("#stop-search").hide();
-	    showShareBtn();
-	    if(moviesFoundCounter)
-	    	askForSharing();
-	    console.log(finalResult);
+            showShareBtn();
+            if (moviesFoundCounter) askForSharing();
+            console.log(finalResult);
             return;
         }
         getMovieInfo(videoFiles[index_counter].name, videoFiles[index_counter].index);
     }
-    function displaySharing()
-    {
-	
-            BootstrapDialog.show({
-	    title: 'Time to show off',
-            message: 'Copy following url to share your movie list<br><pre><a href ="'+shareUrl+'"  target = "_blank">'+shareUrl+'</a></pre',
-	    closable: false,
+
+    function displaySharing() {
+
+        BootstrapDialog.show({
+            title: 'Time to show off',
+            message: 'Copy following url to share your movie list<br><pre><a href ="' + shareUrl + '"  target = "_blank">' + shareUrl + '</a></pre',
+            closable: false,
             buttons: [{
                 label: 'Close',
-                action: function(dialogRef){
+                action: function (dialogRef) {
                     dialogRef.close();
                 }
             }]
@@ -390,43 +381,44 @@ $(document).ready(function () {
 
     }
 
-    function askForSharing()
-    {
+    function askForSharing() {
         BootstrapDialog.show({
-	    title: 'Sweet',
-            message: 'Info found for '+moviesFoundCounter+' movies. Now share your movies list.',
-	    closable: false,
+            title: 'Sweet',
+            message: 'Info found for ' + moviesFoundCounter + ' movies. Now share your movies list.',
+            closable: false,
             buttons: [{
-		id: 'btn-1',
+                id: 'btn-1',
                 icon: 'glyphicon glyphicon-send',
                 label: 'Get url for sharing movie list',
                 cssClass: 'btn-primary',
                 autospin: true,
-                action: function(dialogRef){
+                action: function (dialogRef) {
                     dialogRef.enableButtons(false);
                     dialogRef.setClosable(false);
                     dialogRef.getModalBody().html('Wait! generating unique link');
                     /*setTimeout(function(){
                         dialogRef.close();
                     }, 5000);*/
-		    $.ajax({
-        	    type: "POST",
-		    data: {movieData: finalResult},
-	            url: "getUniqueUrl.php",
-	            success: function (dataCheck) {
-			shareUrl = "http://"+window.location.hostname+"/share.php?id="+dataCheck;
-		        dialogRef.getModalBody().html('Your unique url is generated, share this<br><pre><a href ="'+shareUrl+'"  target = "_blank">'+shareUrl+'</a></pre>');
-			askForSharing_aux(dialogRef);
-	            },
-	            error: function () {
-		        dialogRef.getModalBody().html('Sorry, something went wrong');
-			askForSharing_aux(dialogRef);
-	            }
-	            });
+                    $.ajax({
+                        type: "POST",
+                        data: {
+                            movieData: finalResult
+                        },
+                        url: "getUniqueUrl.php",
+                        success: function (dataCheck) {
+                            shareUrl = "http://" + window.location.hostname + "/share.php?id=" + dataCheck;
+                            dialogRef.getModalBody().html('Your unique url is generated, share this<br><pre><a href ="' + shareUrl + '"  target = "_blank">' + shareUrl + '</a></pre>');
+                            askForSharing_aux(dialogRef);
+                        },
+                        error: function () {
+                            dialogRef.getModalBody().html('Sorry, something went wrong');
+                            askForSharing_aux(dialogRef);
+                        }
+                    });
                 }
             }, {
                 label: 'Close',
-                action: function(dialogRef){
+                action: function (dialogRef) {
                     dialogRef.close();
                 }
             }]
@@ -434,11 +426,10 @@ $(document).ready(function () {
 
     }
 
-    function askForSharing_aux(dialogRef)
-    {
-	dialogRef.setClosable(true);
-	dialogRef.getButton('btn-1') .hide();
-	dialogRef.enableButtons(true);
+    function askForSharing_aux(dialogRef) {
+        dialogRef.setClosable(true);
+        dialogRef.getButton('btn-1').hide();
+        dialogRef.enableButtons(true);
     }
 
     function populateDataTable() {
@@ -453,9 +444,9 @@ $(document).ready(function () {
                 "oLanguage": {
                 "sEmptyTable": "Searching for movie data ..."
             },
-                "order": [   
-                [3, "desc"]  //short by imdb rating
-            ],
+                "order": [
+                [3, "desc"] //short by imdb rating
+                ],
                 "aoColumns": [{
                 "sWidth": "30%"
             }, {
@@ -473,10 +464,10 @@ $(document).ready(function () {
                 "title": "Movie"
             }, {
                 "title": "Trailer",
-                "sClass": "text-center"
+                    "sClass": "text-center"
             }, {
                 "title": "Rating",
-                "sClass": "text-center"
+                    "sClass": "text-center"
             }, {
                 "title": "Genres"
             }, ],
