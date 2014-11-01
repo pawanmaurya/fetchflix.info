@@ -85,7 +85,7 @@ $(document).ready(function () {
         $("#stop-search").click(function () {
             $("#stop-search").hide();
 	    if(moviesFoundCounter)
-	    	    $("#shareSpan").html('<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>');
+		showShareBtn();
             stopLoadingGif();
             stopSearching = 1;
         });
@@ -103,13 +103,17 @@ $(document).ready(function () {
         startProcessingMovieNames();
     }, false);
 
+
+    function showShareBtn()
+    {
+        $("#shareSpan").html('<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>');
         $("#shareBtn").click(function () {
 		if(shareUrl)
 			displaySharing();
 		else
 			askForSharing();
         });
-
+    }
     function cleanGlobalVars()
     {
 	moviesFoundCounter = 0;
@@ -134,7 +138,7 @@ $(document).ready(function () {
     }
 
     function getMessage(num) {
-        var msg = '<div class = "alert alert-info ">' + num + ' video files are found in your directory. Now searching for movie info.<span id = "numFoundText" > Movie info found for <span id = "numFound"></span> movies &nbsp;&nbsp;&nbsp; </span> <span id = "loading"></span> <button class="btn btn-danger btn-sm pull-right" id = "stop-search"><span class="glyphicon glyphicon-remove"></span> Stop Searching</button></div>';
+        var msg = '<div class = "alert alert-info ">' + num + ' video files are found in your directory. Now searching for movie info.<span id = "numFoundText" > Movie info found for <span id = "numFound"></span> movies &nbsp;&nbsp;&nbsp; </span> <span id = "loading"></span> <span id = "shareSpan"></span><button class="btn btn-danger btn-sm pull-right" id = "stop-search"><span class="glyphicon glyphicon-remove"></span> Stop Searching</button></div>';
 
         return msg;
 
@@ -351,9 +355,7 @@ $(document).ready(function () {
             console.log(notFoundArr); //lesser element here means better
             stopLoadingGif();
             $("#stop-search").hide();
-	    $("#shareSpan").html( 
-		    '<button class="btn btn-danger btn-sm pull-right" id = "shareBtn""><span class="glyphicon glyphicon-send"></span>Share movies</button>'
-); 	    
+	    showShareBtn();
 	    if(moviesFoundCounter)
 	    	askForSharing();
 	    console.log(finalResult);
