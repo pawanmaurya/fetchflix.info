@@ -40,15 +40,16 @@ include_once("db.php");
 $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
-echo "<tr>";
+print_r($data);
 foreach ($data as $row)
 {
+echo "<tr>";
 	echo "<td>$row[0]</td>";
 	echo "<td>$row[0][0]</td>";
 	echo "<td>$row[0][1]</td>";
 	echo "<td>$row[0][2]</td>";
-}
 echo "</tr>";
+}
 ?>
         </table>
         </div>
