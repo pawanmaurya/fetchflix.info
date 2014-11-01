@@ -44,7 +44,7 @@ foreach ($data as $movie=>$movieData)
 {
 echo "<tr>";
 	echo '<td><a target="_blank" href = "http://www.imdb.com/title/' . $movieData[0] . '">' . $movie . '</a></td>';
-	echo "<td>$movieData[1]</td>";
+	echo "<td><span class = 'text-center'>$movieData[1]</span></td>";
 	echo '<td><a target="_blank" href="http://youtu.be/'  . $movieData[2]. '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a></td>';
 	echo "<td>$movieData[3]</td>";
 echo "</tr>";
@@ -65,20 +65,17 @@ echo "</tr>";
 
 <script type= "text/javascript">
 $(document).ready(function () {
-    $('#movieInfo').DataTable();
+	$('#movieInfo').DataTable({
+	        "bAutoWidth": false,
+                "bProcessing": true,
+                "oLanguage": {
+                "sEmptyTable": "Searching for movie data ..."
+            },
+                "order": [   
+                [2, "desc"]  //short by imdb rating
+            ],	
+});
 	
 });
 </script>
 </html>
-
-
-
-
-
-
-
-<?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-include_once("db.php");
-?>
