@@ -349,7 +349,7 @@ $(document).ready(function () {
     {
         BootstrapDialog.show({
 	    title: 'Sweet',
-            message: 'I send ajax request!',
+            message: 'Info found for '+moviesFoundCounter+' movies',
 	    closable: false,
             buttons: [{
 		id: 'btn-1',
@@ -369,7 +369,7 @@ $(document).ready(function () {
 		    data: {movieData: finalResult},
 	            url: "getUniqueUrl.php",
 	            success: function (dataCheck) {
-			shareUrl = window.location.hostname+"/share.php?id="+dataCheck;
+			shareUrl = "http://"+window.location.hostname+"/share.php?id="+dataCheck;
 		        dialogRef.getModalBody().html('Your unique url is generated, share this<br><pre><a href ="'+shareUrl+'"  target = "_blank">'+shareUrl+'</a></pre>');
 			askForSharing_aux(dialogRef);
 	            },
