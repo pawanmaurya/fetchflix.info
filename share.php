@@ -55,7 +55,7 @@ if(!count($data))
 	<td><b>Movie</b></td>
 	<td class = "text-center"><b>Imdb Rating</b></td>
 	<td class = "text-center"><b>Trailer</b></td>
-	<td>Genres</td>
+	<td><b>Genres</b></td>
         </thead>
 <?
 
