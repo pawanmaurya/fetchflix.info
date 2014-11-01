@@ -14,12 +14,6 @@
     <!-- Bootstrap Core CSS -->
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<style>
-.fixed {
-  bottom: 0;
-  left: 0;
-}
-</style>
 </head>
 <body >
         <!-- Portfolio -->
@@ -80,9 +74,6 @@ echo "</tr>";
         </div>
 
 
-<div class = "fixed">
-<img src = "img/batman.png"/>
-</div>
 </body>
     <script  type="text/javascript" language="javascript"  src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
