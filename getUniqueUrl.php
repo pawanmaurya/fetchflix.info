@@ -13,8 +13,6 @@ $movieData = serialize($movieData);
 $uniqueUrlId = $db->insertData($movieData);
 if($uniqueUrlId)
 	echo $uniqueUrlId;
-else
-	echo "";
 
 /*
 $uniqueId = uniqid();
