@@ -39,7 +39,16 @@ ini_set("display_errors", 1);
 include_once("db.php");
 $db = new DB();
 $data = $db->selectData("5453c7232634f");
-print_r($data);
+$data = unserialize($data);
+echo "<tr>";
+foreach ($data as $row)
+{
+	echo "<td>$row[0]</td>";
+	echo "<td>$row[0][0]</td>";
+	echo "<td>$row[0][1]</td>";
+	echo "<td>$row[0][2]</td>";
+}
+echo "</tr>";
 ?>
         </table>
         </div>
