@@ -17,18 +17,16 @@
 </head>
 <body>
         <!-- Portfolio -->
-    <section id="result" class="portfolio" style = "visibility:none">
-        
         <div class = "container">
-<div class="header">
+	<div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
           <li role="presentation" class="active"><a href="#">Home</a></li>
           <li role="presentation"><a href="#">About</a></li>
           <li role="presentation"><a href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">Project name</h3>
-      </div>
-                <div class="col-lg-12 ">
+	</div>
+	<div class="col-lg-12 ">
        <div  id = "message">
 <?
 error_reporting(E_ALL);
@@ -64,7 +62,6 @@ echo "</tr>";
 ?>
         </table>
         </div>
-    </section>
 
 
 </body>
