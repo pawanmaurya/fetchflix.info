@@ -14,16 +14,18 @@
     <!-- Bootstrap Core CSS -->
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<style>
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+</style>
 </head>
-<body style = "background-color:'#ECECEC'">
+<body style = "background-color:rgb(236,236,236)">
         <!-- Portfolio -->
         <div class = "container">
 	<div class="header">
-        <ul class="nav nav-pills pull-right" role="tablist">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">About</a></li>
-          <li role="presentation"><a href="#">Contact</a></li>
-        </ul>
         <h3 class="text-muted">Project name</h3>
 	</div>
 	<div class="col-lg-12 ">
@@ -63,6 +65,9 @@ echo "</tr>";
 }
 ?>
         </table>
+<div>
+<img src = "batman.jpg"/>
+</div>
         </div>
 
 
