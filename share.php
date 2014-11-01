@@ -22,13 +22,13 @@
         <!-- Portfolio -->
         <div class = "container">
 	<div class="header">
-	<h2 class="text-muted"><a href="http://<?echo $_SERVER['SERVER_NAME'];?>">Fetch Flix Info</a></h2>
+	<h2 class="text-muted"><a href="http://<?echo $_SERVER['SERVER_NAME'];?>">Fetch Flix Info</a> <small> Analyze your movie collection </small></h2>
 	</div>
 	<div class="col-lg-12 ">
        <div  id = "message">
 <?
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
 
 if(!isset($_GET['id']))
 {

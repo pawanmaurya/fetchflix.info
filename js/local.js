@@ -50,7 +50,7 @@ $(document).ready(function () {
     $("#whyGoogle").click(function (e) {
         BootstrapDialog.alert({
             title: 'Oops! Only Google Chrome is supported',
-            message: 'Only chrome provides webkitdirectory to select whole folders',
+            message: 'Because only chrome provides webkitdirectory to select whole folders',
             type: BootstrapDialog.TYPE_DEFAULT,
         });
         e.preventDefault();
@@ -63,7 +63,7 @@ $(document).ready(function () {
         if (!is_chrome) {
             BootstrapDialog.alert({
                 title: 'Oops! Only Google Chrome is supported',
-                message: 'Only chrome provides webkitdirectory to select whole folders',
+                message: 'Because only chrome provides webkitdirectory to select whole folders',
                 type: BootstrapDialog.TYPE_WARNING,
             });
             return;
