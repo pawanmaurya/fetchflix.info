@@ -22,7 +22,7 @@
 }
 </style>
 </head>
-<body style = "background-color:rgb(236,236,236)">
+<body >
         <!-- Portfolio -->
         <div class = "container">
 	<div class="header">
@@ -69,7 +69,7 @@ echo "</tr>";
 
 
 <div class = "fixed">
-<img src = "batman.jpg"/>
+<img src = "batman.png"/>
 </div>
 </body>
     <script  type="text/javascript" language="javascript"  src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
