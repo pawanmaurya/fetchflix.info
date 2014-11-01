@@ -101,7 +101,7 @@ $(document).ready(function () {
     }, false);
 
     function startLoadingGif() {
-        $("#loading").html("<img src='load.gif' alt='loading...' />");
+        $("#loading").html("<img src='img/load.gif' alt='loading...' />");
 
     }
 
@@ -290,7 +290,7 @@ $(document).ready(function () {
                     console.log(items);
                     if (items[0]) 
 		    {
-		    	ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a>';
+		    	ret = '<a target="_blank" href="http://youtu.be/' + items[0].id + '"><img src = "img/youtube.png" alt = "youtube link" title = "Trailer"/></a>';
 			youtubeId = items[0].id;
 		    }
                 }
