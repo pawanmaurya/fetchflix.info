@@ -36,7 +36,7 @@ $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
 ?>
-	<span class = "alert alert-info offset2 span4"> <? echo count($data);?> movies are this list</span>
+	<div class = "alert alert-info offset2 span4"> <? echo count($data);?> movies are this list</div>
         </div> 
         </div>
         <div id="example_wrapper" class="dataTables_wrapper span8 offset2">
