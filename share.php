@@ -52,10 +52,12 @@ if(!count($data))
         <div id="example_wrapper" class="dataTables_wrapper span8 offset2">
         <table id="movieInfo" class="table table-striped table-bordered">
 	<thead>
+	<b>
 	<td>Movie</td>
 	<td class = "text-center">Imdb Rating</td>
 	<td class = "text-center">Trailer</td>
 	<td>Genres</td>
+	</b>
         </thead>
 <?
 
