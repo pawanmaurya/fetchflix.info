@@ -16,7 +16,6 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <style>
 .fixed {
-  position: fixed;
   bottom: 0;
   left: 0;
 }
@@ -33,10 +32,23 @@
 <?
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+
+if(!isset($_GET['id']))
+{
+	echo "<div class = 'alert alert-danger'>Sorry no info found</div>";
+	exit();
+}
+
+$uniqueId = $_GET['id'];
 include_once("db.php");
 $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
+if(!count($data))
+{
+	echo "<div class = 'alert alert-danger'>Sorry no info found</div>";
+	exit();
+}
 ?>
 <div class = "row">
 <hr/>
