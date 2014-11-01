@@ -47,6 +47,14 @@ $(document).ready(function () {
                          // videoFiles = [{index : <index of fileNames>, name : <video name>}]
     var notFoundArr = []; //for debugging
 
+        $("#whyGoogle").click(function (e) {
+	    BootstrapDialog.alert({
+		title: 'Oops! Only Google Chrome is supported',
+            	message: 'Only chrome provides webkitdirectory to select whole folders'
+	    }); 
+	    e.preventDefault();
+        });
+
     //proxyBtn is used to override default chrome btn
     $("#proxyBtn").click(function (e) {
         
