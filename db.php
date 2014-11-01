@@ -40,7 +40,7 @@ public function selectData($uniqueId)
 	if (!pg_num_rows($result))
 		return NULL;
 	$row = pg_fetch_row($result);
-	return $row[$MOVIESDATA];
+	return $row[self::$MOVIESDATA];
 	
 }
 
