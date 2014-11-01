@@ -9,6 +9,9 @@ Imdb rating
 youtube trailer link
 genres
 
+
+
+
 ![alt tag](http://i.imgur.com/5H2lvD6.png)
 
 TODO
