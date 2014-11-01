@@ -41,13 +41,13 @@ $db = new DB();
 $data = $db->selectData("5453c7232634f");
 $data = unserialize($data);
 print_r($data);
-foreach ($data as $row)
+foreach ($data as $movie=>$movieData)
 {
 echo "<tr>";
-	echo "<td>$row[0]</td>";
-	echo "<td>$row[0][0]</td>";
-	echo "<td>$row[0][1]</td>";
-	echo "<td>$row[0][2]</td>";
+	echo "<td>$movie</td>";
+	echo "<td>$movieData[0]</td>";
+	echo "<td>$movieData[1]</td>";
+	echo "<td>$movieData[2]</td>";
 echo "</tr>";
 }
 ?>
