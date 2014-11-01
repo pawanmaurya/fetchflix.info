@@ -44,10 +44,10 @@ print_r($data);
 foreach ($data as $movie=>$movieData)
 {
 echo "<tr>";
-	echo "<td>$movie</td>";
-	echo "<td>$movieData[0]</td>";
+	echo '<td><a target="_blank" href = "http://www.imdb.com/title/' . $movieData[0] . '">' . $movie . '</a></td>';
 	echo "<td>$movieData[1]</td>";
-	echo "<td>$movieData[2]</td>";
+	echo '<td><a target="_blank" href="http://youtu.be/'  . $movieData[2]. '"><img src = "youtube.png" alt = "youtube link" title = "Trailer"/></a></td>';
+	echo "<td>$movieData[3]</td>";
 echo "</tr>";
 }
 ?>
