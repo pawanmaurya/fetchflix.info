@@ -15,4 +15,4 @@ You can also share movie list
 
 TODO
 ==============
-subtitled download link for movies
+subtitles download link for movies
